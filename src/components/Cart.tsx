@@ -12,13 +12,12 @@ import {
   HiOutlineTrash,
 } from 'react-icons/hi';
 import { Button } from './ui/button';
-import { IProduct } from '@/types/globalTypes';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import {
   addToCart,
   removeFormCart,
   removeOneFromCart,
-} from '@/redux/cart/cartSlice';
+} from '@/redux/features/cart/cartSlice';
 
 export default function Cart() {
   //! Dummy data
