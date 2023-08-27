@@ -14,7 +14,7 @@ import {
 import { Button } from './ui/button';
 import { IProduct } from '@/types/globalTypes';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { addToCart } from '@/redux/cart/cartSlice';
+import { addToCart, removeFormCart } from '@/redux/cart/cartSlice';
 
 export default function Cart() {
   //! Dummy data
@@ -62,6 +62,7 @@ export default function Cart() {
                   <HiMinus size="20" />
                 </Button>
                 <Button
+                  onClick={() => dispatch(removeFormCart(product))}
                   variant="destructive"
                   className="bg-red-500 hover:bg-red-400"
                 >
