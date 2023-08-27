@@ -14,14 +14,17 @@ import {
 import { Button } from './ui/button';
 import { IProduct } from '@/types/globalTypes';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { addToCart, removeFormCart } from '@/redux/cart/cartSlice';
+import {
+  addToCart,
+  removeFormCart,
+  removeOneFromCart,
+} from '@/redux/cart/cartSlice';
 
 export default function Cart() {
   //! Dummy data
 
-  const { products } = useAppSelector((state) => state.cart);
+  const { products, total } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
-  const total = 0;
 
   //! **
 
@@ -58,7 +61,7 @@ export default function Cart() {
                 <Button onClick={() => dispatch(addToCart(product))}>
                   <HiOutlinePlus size="20" />
                 </Button>
-                <Button>
+                <Button onClick={() => dispatch(removeOneFromCart(product))}>
                   <HiMinus size="20" />
                 </Button>
                 <Button
