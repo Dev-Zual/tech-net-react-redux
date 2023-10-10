@@ -4,31 +4,5 @@ export const productsApi = createApi({
   reducerPath: 'productsApi',
   tagTypes: ['comment'],
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
-  endpoints: (builder) => ({
-    getProducts: builder.query({
-      query: () => '/products',
-    }),
-    getSingleProduct: builder.query({
-      query: (id) => `/product/${id}`,
-    }),
-    postComment: builder.mutation({
-      query: ({ id, data }) => ({
-        url: `/comment/${id}`,
-        method: 'POST',
-        body: data,
-      }),
-      invalidatesTags: ['comment'],
-    }),
-    getComment: builder.query({
-      query: (id) => `/comment/${id}`,
-      providesTags: ['comment'],
-    }),
-  }),
+  endpoints: () => ({}),
 });
-
-export const {
-  useGetProductsQuery,
-  useGetSingleProductQuery,
-  usePostCommentMutation,
-  useGetCommentQuery,
-} = productsApi;
